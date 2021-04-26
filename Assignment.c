@@ -39,7 +39,65 @@ void display(struct Student *head) //Traverse and print function to display the 
     printf("\n\n---------------------------------------------------------------\n\n");
 }
 
+struct Student * insert(struct Student *head,struct Student New,int n)
+{
 
+    printf("\n\nInserting a new student data in the linked list ...\n");
+
+    struct Student *ptr,*temp ;
+    temp=(struct Student* )malloc(sizeof(struct Student));
+
+     temp->name=New.name;
+     temp->student_id = New.student_id;
+     temp->date[0] = New.date[0];
+     temp->date[1] = New.date[1];
+     temp->date[2] = New.date[2];
+     temp->score = New.score;
+     temp->link=NULL ;
+
+    printf("\twhat do you want to do ?\n\tTo add new student at the end press\t\t1\n\tTo add new student at the first press\t\t2\n\tTo add new student at the middle press\t\t3\n");
+    int j ;
+    scanf("%d",&j);
+
+switch (j){
+
+    case 1:
+        ptr = head;
+        while(ptr->link != NULL)
+        {
+            ptr=ptr->link;
+        }
+        ptr->link=temp;
+        return head;
+
+        break;
+
+    case 2:
+        ptr=temp;
+        ptr->link=head;
+        head = ptr;
+        return head;
+        break;
+
+    case 3:
+        ptr = head;
+        int i = 0;
+
+         while(i<=n/2-1)
+        {
+            ptr=ptr->link;
+            i++;
+        }
+        temp->link=ptr->link;
+        ptr->link=temp;
+        return head;
+        break;
+
+    default:
+        break ;
+
+    }
+}
 int main()
 {
 
@@ -88,7 +146,8 @@ int main()
     New.link= NULL ;
 
     display(head);
+    head=insert(head,New,n);
+    display(head);
 
     return 0;
 }
-
