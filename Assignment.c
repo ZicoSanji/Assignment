@@ -8,8 +8,37 @@ struct Student //liked list to the students contains there data
     int student_id;
     int date[3] ;
     int score;
-    struct Student* link ; 
+    struct Student* link ;
 };
+void display(struct Student *head) //Traverse and print function to display the linked list data
+{
+    printf("\nDisplaying the linked list ....\n\n");
+    int count = 0 ;
+    if (head == NULL)
+        printf("linked list is emty");
+    struct Student *ptr = NULL;
+    ptr = head ;
+    while (ptr != NULL)
+    {
+        count++;
+        printf("The %d",count);
+        printf(" Student data is  : \n");
+
+        printf("\tName : %s\n",ptr->name );
+        printf("\tStudent ID : %d\n",ptr->student_id );
+        printf("\tDate Of Birth : %d",ptr->date[0] );
+        printf(" / %d",ptr->date[1] );
+        printf(" / %d\n",ptr->date[2] );
+        printf("\tScore : %d\n\n",ptr->score );
+
+        ptr = ptr ->link;
+
+    }
+    printf("The linked list have :    %d",count );
+    printf("  Nodes");
+    printf("\n\n---------------------------------------------------------------\n\n");
+}
+
 
 int main()
 {
@@ -58,7 +87,8 @@ int main()
     New.score = 520;
     New.link= NULL ;
 
+    display(head);
+
     return 0;
 }
 
-/*Add Line
