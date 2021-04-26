@@ -8,7 +8,7 @@ struct Student //liked list to the students contains there data
     int student_id;
     int date[3] ;
     int score;
-    struct Student* link ;
+    struct Student* link ; 
 };
 
 int main()
@@ -60,3 +60,5 @@ int main()
 
     return 0;
 }
+
+/*555
